@@ -6,9 +6,9 @@ ideas, code snipets, summaries, etc
 
 ## Code snipets
 
-### [General](/general)
+### [General](general)
 
-
+1. [bash](general/bash.md)
 
 ### Data Engineer
 
