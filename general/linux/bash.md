@@ -1,6 +1,8 @@
 # # Unix
 
-date
+http://tldp.org/LDP/abs/html/index.html
+
+## date
 
 `date [option] ... [+Format]`
 
@@ -106,7 +108,7 @@ date
 
       `S`							Seconds
 
-      `s`							epoch seconds  (from January 1, 1970 00:00:00 GMT)
+      `s`							epoch seconds (from January 1, 1970 00:00:00 GMT)
 
    9. pad
 
@@ -120,11 +122,59 @@ date
 
 ```bash
 date -I 							# 2018-09-06
-date +%Y-%m-%d 						# 2018-09-06
-date +%d-%b-%y 						# 06-Sep-18
-date +%Y 							# 2018
-date +%y							# 18
-date +%m							#
-
+date +%Y-%m-%d 							# 2018-09-06
+date +%d-%b-%y 							# 06-Sep-18
+date +%Y-%m-%d:%H:%M:%S 							# 2018-09-06:22:07:13
+date -d now 							# Thu Sep  6 22:07:58 CDT 2018
+date -d '3 months 1 day' 							# Fri Dec  7 21:09:07 CST 2018
+date -d "$DATE_VARIABLE - 1 day" 							# 1 day before $DATE_VARIABLE
+date -d "$DATE_VARIABLE 1 day ago" 							# 1 day before $DATE_VARIABLE
+date -d 1may '+%B %d' 							# May 01
 ```
 
+4. Used in shell script:
+
+```bash
+`date +%Y-%m-%d:%H:%M:%S`
+$(date +%Y-%m-%d:%H:%M:%S)
+```
+
+## Redirection
+
+`echo “” 2>&1 | tee -a /path/to/log/file.log` Redirect `stderr` to file descriptor 1 (`stdout`), `&` indicates that what follows is a file descriptor, not a filename.
+
+File descriptor 0 is standard input (`stdin`). 
+
+File descriptor 1 is standard output (`stdout`). 
+
+File descriptor 2 is standard error (`stderr`). 
+
+`echo “” > afile.txt`	redirects `stdout` to afile.txt
+
+`echo “” 1> afile.txt`	redirects `stdout` to afile.txt
+
+`echo “” 2> afile.txt`	redirects `stderr` to afile.txt
+
+`>&`	redirects to a file descriptor 
+
+`echo “” 1>&2`			redirects `stdout` to `stderr`
+
+`>`	*send to as a whole completed file*, **overwriting** target if exist
+
+`>>` *send in addition to* would **append** to target if exist
+
+`echo “” >> /path/to/log/file.log  ` 
+
+https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+
+## grep
+
+
+
+## sed
+
+`**sed**: a non-interactive text file editor`
+
+## awk
+
+`**awk**: a field-oriented pattern processing language with a **C**-style syntax`
