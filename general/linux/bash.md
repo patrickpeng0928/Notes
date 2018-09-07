@@ -8,7 +8,7 @@ date
 
 1. Options:
 
-   `-d, --date=String`				display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
+   `-d, --date=String`display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
 
    `-f, --file=DateFile`			-d on each line of DateFile
 
@@ -106,7 +106,7 @@ date
 
       `S`							Seconds
 
-      `s`							epoch seconds (from January 1, 1970 00:00:00 GMT)
+      `s`							epoch seconds  (from January 1, 1970 00:00:00 GMT)
 
    9. pad
 
