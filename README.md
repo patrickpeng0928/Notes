@@ -8,7 +8,9 @@ ideas, code snipets, summaries, etc
 
 ### [General](general)
 
-1. [bash](general/bash.md)
+#### [Linux](general/linux)
+
+1. [bash](general/linux/bash.md)
 
 ### Data Engineer
 
