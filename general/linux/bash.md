@@ -1,4 +1,4 @@
-# # Unix
+# Unix
 
 http://tldp.org/LDP/abs/html/index.html
 
@@ -11,9 +11,7 @@ http://tldp.org/LDP/abs/html/index.html
 1. Options:
 
    `-d, --date=String`display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
-
    `-f, --file=DateFile`			-d on each line of DateFile
-
    `-I, --iso-8601[=Timespec]`		ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds}
 
    `-r, --reference=File`			display the last modification time of File
@@ -143,11 +141,11 @@ $(date +%Y-%m-%d:%H:%M:%S)
 
 `echo “” 2>&1 | tee -a /path/to/log/file.log` Redirect `stderr` to file descriptor 1 (`stdout`), `&` indicates that what follows is a file descriptor, not a filename.
 
-File descriptor 0 is standard input (`stdin`). 
+File descriptor 0 is standard input (`stdin`).
 
-File descriptor 1 is standard output (`stdout`). 
+File descriptor 1 is standard output (`stdout`).
 
-File descriptor 2 is standard error (`stderr`). 
+File descriptor 2 is standard error (`stderr`).
 
 `echo “” > afile.txt`	redirects `stdout` to afile.txt
 
@@ -155,7 +153,7 @@ File descriptor 2 is standard error (`stderr`).
 
 `echo “” 2> afile.txt`	redirects `stderr` to afile.txt
 
-`>&`	redirects to a file descriptor 
+`>&`	redirects to a file descriptor
 
 `echo “” 1>&2`			redirects `stdout` to `stderr`
 
@@ -163,9 +161,55 @@ File descriptor 2 is standard error (`stderr`).
 
 `>>` *send in addition to* would **append** to target if exist
 
-`echo “” >> /path/to/log/file.log  ` 
+`echo “” >> /path/to/log/file.log  `
 
 https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+
+## Dynamic Programming
+
+```bash
+var1="abc"
+pre_abc="xyz"
+var2=pre_$var1
+echo $var2 # pre_abc
+echo ${!var2} # xyz
+```
+
+
+
+## lower case and upper case
+
+```
+var="aBc"
+echo ${var^^} # ABC
+echo ${var,,} # abc
+```
+
+
+
+## Case
+
+```bash
+case "$1" in:
+	a )
+		echo a
+		;;
+	*b* )
+		echo c
+		;;
+	*)
+		echo *
+		;;
+esac
+```
+
+
+
+## IF
+
+
+
+
 
 ## grep
 
@@ -178,3 +222,5 @@ https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 ## awk
 
 `**awk**: a field-oriented pattern processing language with a **C**-style syntax`
+
+https://likegeeks.com/awk-command/
