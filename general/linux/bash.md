@@ -9,11 +9,10 @@ http://tldp.org/LDP/abs/html/index.html
 `date [option] [MMDDhhmm[[CC]YY][.ss]]`
 
 1. Options:
+2. 
 
    | option | description |
-
    |:---:|:--- |
-
    | `-d, --date=String` | display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc |
 
    | `-f, --file=DateFile` | `-d` on each line of DateFile |
@@ -23,6 +22,7 @@ http://tldp.org/LDP/abs/html/index.html
    | `-r, --reference=File` | display the last modification time of File |
 
    `--help`
+
    `--version`
 
 2. Formats:
