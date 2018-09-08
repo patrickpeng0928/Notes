@@ -10,13 +10,13 @@ http://tldp.org/LDP/abs/html/index.html
 
 1. Options:
 
-   `-d, --date=String` &npsp; &npsp; &npsp; &npsp; display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
+   `-d, --date=String` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
 
-   `-f, --file=DateFile`			`-d` on each line of DateFile
+   `-f, --file=DateFile` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `-d` on each line of DateFile
 
-   `-I, --iso-8601[=Timespec]`		ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds}
+   `-I, --iso-8601[=Timespec]` &nbsp; &nbsp; &nbsp; ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds}
 
-   `-r, --reference=File`			display the last modification time of File
+   `-r, --reference=File` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display the last modification time of File
 
    `--help`
 
@@ -26,9 +26,9 @@ http://tldp.org/LDP/abs/html/index.html
 
    1. Date
 
-      `D`							date in mm/dd/yy
+      `D` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; date in mm/dd/yy
 
-      `x`							date in local standard format
+      `x` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; date in local standard format
 
    2. Year
 
