@@ -23,7 +23,6 @@ http://tldp.org/LDP/abs/html/index.html
    | `-r, --reference=File` | display the last modification time of File |
 
    `--help`
-
    `--version`
 
 2. Formats:
