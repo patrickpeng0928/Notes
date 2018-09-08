@@ -126,8 +126,8 @@ date +%Y-%m-%d:%H:%M:%S 		      # 2018-09-06:22:07:13
 date -d now 							# Thu Sep  6 22:07:58 CDT 2018
 date -d '3 months 1 day' 			# Fri Dec  7 21:09:07 CST 2018
 date -d "$DATE_VARIABLE - 1 day" 				# 1 day before DATE_VARIABLE
-date -d "$DATE_VARIABLE 1 day ago" 	    # 1 day before DATE_VARIABLE
-date -d 1may '+%B %d' 			# May 01
+date -d "$DATE_VARIABLE 1 day ago" 	       # 1 day before DATE_VARIABLE
+date -d 1may '+%B %d' 			     # May 01
 ```
 
 4. Used in shell script:
