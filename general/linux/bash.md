@@ -9,17 +9,13 @@ http://tldp.org/LDP/abs/html/index.html
 `date [option] [MMDDhhmm[[CC]YY][.ss]]`
 
 1. Options:
-
-   `-d, --date=String` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc
-
-   `-f, --file=DateFile` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `-d` on each line of DateFile
-
-   `-I, --iso-8601[=Timespec]` &nbsp; &nbsp; &nbsp; ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds}
-
-   `-r, --reference=File` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display the last modification time of File
-
+   | option | description |
+   |:---:|:--- |
+   | `-d, --date=String` | display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc |
+   | `-f, --file=DateFile` | `-d` on each line of DateFile |
+   | `-I, --iso-8601[=Timespec]`| ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds} |
+   | `-r, --reference=File` | display the last modification time of File |
    `--help`
-
    `--version`
 
 2. Formats:
