@@ -9,6 +9,7 @@ http://tldp.org/LDP/abs/html/index.html
 `date [option] [MMDDhhmm[[CC]YY][.ss]]`
 
 1. Options:
+
    | option | description |
 
    |:---:|:--- |
