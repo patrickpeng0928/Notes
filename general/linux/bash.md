@@ -30,89 +30,89 @@ http://tldp.org/LDP/abs/html/index.html
 
    2. Year
 
-      `C`							Century in 2 digit
+      `C` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Century in 2 digit
 
-      `Y`							Year in 4 digit
+      `Y` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Year in 4 digit
 
-      `y`							year in last 2 digit
+      `y` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; year in last 2 digit
 
-      `G`							`Y`
+      `G` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `Y`
 
-      `g`							`y`
+      `g` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `y`
 
    3. Month
 
-      `b`							Month name - abbreviated
+      `b` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Month name - abbreviated
 
-      `B`							Month name - full
+      `B` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Month name - full
 
-      `h`							`b`
+      `h` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `b`
 
-      `m`							Month in 2 digit number
+      `m` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Month in 2 digit number
 
    4. Week
 
-      `W`							Week in [00, 52]
+      `W` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Week in [00, 52]
 
-      `V`							Week in [01, 53]
+      `V` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Week in [01, 53]
 
-      `U`							`W`
+      `U` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `W`
 
    5. Day
 
-      `a`							Day of the week - abbreviated name (Mon)
+      `a` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the week - abbreviated name (Mon)
 
-      `A`							Day of the week - full name (Monday)
+      `A` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the week - full name (Monday)
 
-      `u`							Day of the week in 1 digit number (Mon = 1)
+      `u` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the week in 1 digit number (Mon = 1)
 
-      `d`							Day of the month in 2 digits
+      `d` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the month in 2 digits
 
-      `e`							Day of the month in 1 or 2 digits, preceded by a space
+      `e` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the month in 1 or 2 digits, preceded by a space
 
-      `j`							Day of the year in [1, 366]
+      `j` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Day of the year in [1, 366]
 
-      `w`							`u`
+      `w` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `u`
 
    6. Time
 
-      `p`							AM or PM
+      `p` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AM or PM
 
-      `r`							Time in 12-hour format
+      `r` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 12-hour format
 
-      `R`							Time in 24-hour format w/o seconds
+      `R` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 24-hour format w/o seconds
 
-      `T`							Time in 24-hour format w. seconds
+      `T` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 24-hour format w. seconds
 
-      `X`							`T`
+      `X` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `T`
 
-      `Z`							Time offset from UTC in abbreviated name (CDT)
+      `Z` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time offset from UTC in abbreviated name (CDT)
 
-      `z`							Time offset from UTC in signed number (-0500)
+      `z` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time offset from UTC in signed number (-0500)
 
    7. Hour
 
-      `H`							Hour in 24-hour format
+      `H` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hour in 24-hour format
 
-      `I`							Hour in 12-hour format
+      `I` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hour in 12-hour format
 
-      `k`							`H`
+      `k` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `H`
 
-      `l`							`I`
+      `l` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `I`
 
    8. Minutes & Seconds
 
-      `M`							Minutes
+      `M` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Minutes
 
-      `S`							Seconds
+      `S` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Seconds
 
-      `s`							epoch seconds (from January 1, 1970 00:00:00 GMT)
+      `s` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; epoch seconds (from January 1, 1970 00:00:00 GMT)
 
    9. pad
 
-      `-`							do not pad field
+      `-` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; do not pad field
 
-      `_`							pad with spaces
+      `_` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pad with spaces
 
       `defualt`					pad with 0
 
