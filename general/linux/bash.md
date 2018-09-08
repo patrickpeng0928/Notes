@@ -17,8 +17,8 @@ http://tldp.org/LDP/abs/html/index.html
    | `-f` | `--file=DateFile` | `-d` on each line of DateFile |
    | `-I` | `--iso-8601[=Timespec]` | ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds} |
    | `-r` | `--reference=File` | display the last modification time of File |
-   | `--help` | | |
-   | `--version` | | |
+   | | `--help` | |
+   | | `--version` | |
 
 2. Formats:
 
