@@ -12,7 +12,7 @@ http://tldp.org/LDP/abs/html/index.html
 
 
    | option | description |
-   |:--- |:--- |
+   |:--------- |:--- |
    | `-d, --date=String` | display time described by String. Any common format or literal. Now, yesterday,  -1 day, time zone, am, pm, ago, next, etc |
    | `-f, --file=DateFile` | `-d` on each line of DateFile |
    | `-I, --iso-8601[=Timespec]`| ISO 8601 compliant date/time string. %Y-%m-%d. Timespec = {date, hours, minutes, seconds} |
