@@ -208,7 +208,26 @@ esac
 ## IF
 
 
+## Loop
+### while
+#### loop through dates
+```
+# slightly malformed input data
+input_start=2018-09-23
+input_end=2018-09-26
 
+# After this, startdate and enddate will be valid ISO 8601 dates,
+# or the script will have aborted when it encountered unparseable data
+# such as input_end=abcd
+START_DATE=$(date -I -d "$input_start") || exit -1
+END_DATE=$(date -I -d "$input_end")     || exit -1
+
+d=$START_DATE
+while [ $(date -d "$d" +%Y%m%d) -lt $(date -d "$END_DATE" +%Y%m%d)  ]; do
+    echo $d
+    d=$(date -d "$d + 1 day" -I)
+done
+```
 
 
 ## grep
