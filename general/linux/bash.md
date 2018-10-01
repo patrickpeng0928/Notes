@@ -186,9 +186,7 @@ echo ${var,,} # abc
 ```
 
 ### Array
-```url
 http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
-```
 
 #### Create an array
 ```bash
