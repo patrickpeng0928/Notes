@@ -176,16 +176,142 @@ echo ${!var2} # xyz
 ```
 
 
+## String Manipulation
+### lower case and UPPER CASE
 
-## lower case and upper case
-
-```
+```bash
 var="aBc"
 echo ${var^^} # ABC
 echo ${var,,} # abc
 ```
 
+### Array
+```url
+http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
+```
 
+#### Create an array
+```bash
+AN_ARRAY=(
+a
+b
+c
+d
+e
+)
+```
+
+#### Print an array to screen
+```bash
+echo ${AN_ARRAY[0]}		# the 1st item in the array
+echo ${AN_ARRAY[*]} 		# All of the items in the array
+echo ${!AN_ARRAY[*]}            # All of the indexes in the array
+echo ${#AN_ARRAY[*]}            # Number of items in the array
+echo ${#AN_ARRAY[0]}            # Length of item zero
+```
+
+#### Loop through all elements in an array
+```bash
+array=(one two three four [5]=five)
+
+echo "Array size: ${#array[*]}"
+# Array size: 5
+
+echo "Array items:"
+for item in ${array[*]}
+do
+    printf "   %s\n" $item
+done
+# Array items:
+#   one
+#   two
+#   three
+#   four
+#   five
+
+echo "Array indexes:"
+for index in ${!array[*]}
+do
+    printf "   %d\n" $index
+done
+# Array indexes:
+#    0
+#    1
+#    2
+#    3
+#    5
+
+echo "Array items and indexes:"
+for index in ${!array[*]}
+do
+    printf "%4d: %s\n" $index ${array[$index]}
+done
+# Array items and indexes:
+#    0: one
+#    1: two
+#    2: three
+#    3: four
+#    5: five
+```
+
+#### @ vs *
+Note that the "@" sign can be used instead of the "*" in constructs such as ${arr[*]}, the result is the same except when expanding to the items of the array within a quoted string. In this case the behavior is the same as when expanding "$*" and "$@" within quoted strings: "${arr[*]}" returns all the items as a single word, whereas "${arr[@]}" returns each item as a separate word.
+
+The following example shows how unquoted, quoted "*", and quoted "@" affect the expansion (particularly important when the array items themselves contain spaces):
+```bash
+#!/bin/bash
+
+array=("first item" "second item" "third" "item")
+
+echo "Number of items in original array: ${#array[*]}"
+for ix in ${!array[*]}
+do
+    printf "   %s\n" "${array[$ix]}"
+done
+echo
+# Number of items in original array: 4
+#    first item
+#    second item
+#    third
+#    item
+
+arr=(${array[*]})
+echo "After unquoted expansion: ${#arr[*]}"
+for ix in ${!arr[*]}
+do
+    printf "   %s\n" "${arr[$ix]}"
+done
+echo
+# After unquoted expansion: 6
+#    first
+#    item
+#    second
+#    item
+#    third
+#    item
+
+arr=("${array[*]}")
+echo "After * quoted expansion: ${#arr[*]}"
+for ix in ${!arr[*]}
+do
+    printf "   %s\n" "${arr[$ix]}"
+done
+echo
+# After * quoted expansion: 1
+#    first item second item third item
+
+arr=("${array[@]}")
+echo "After @ quoted expansion: ${#arr[*]}"
+for ix in ${!arr[*]}
+do
+    printf "   %s\n" "${arr[$ix]}"
+done
+# After @ quoted expansion: 4
+#    first item
+#    second item
+#    third
+#    item
+```
 
 ## Case
 
