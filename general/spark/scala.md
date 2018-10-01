@@ -9,6 +9,8 @@ import java.util.Calendar
 
 ### Date Format
 ```scala
+import java.text.SimpleDateFormat
+
 val dateFormat = new SimpleDateFormat("yyyy-MM-dd")
 ```
 
@@ -20,6 +22,10 @@ val epoch_time: Long = dateFormat.parse(start_date).getTime
 
 ### +/- days
 ```scala
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Calendar
+
 val delta_days: Int = 1
 val start_date = new Date()
 val start_date = "yyyy-MM-dd"
@@ -57,6 +63,7 @@ def configureHDFS(): FileSystem = {
 ```scala
 import org.apache.hadoop.fs.{FSDataOutputStream, FileSystem, Path}
 import org.apache.spark.sql.SparkSession
+
 def appendHDFSFile(
                     content: String
                     , filePath: String
