@@ -16,7 +16,7 @@ LOCATION 'hdfs://...';
 ```
 
 ## Create an partitioned parquet table
-```hql
+```hive
 CREATE EXTERNAL TABLE IF NOT EXISTS <tbl_name> (
 col_name col_type,
 )
