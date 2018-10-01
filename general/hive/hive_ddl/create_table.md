@@ -1,6 +1,6 @@
 # Hive Table DDL
 ## Create an external table
-```mysql
+```hive
 CREATE EXTERNAL TABLE IF NOT EXISTS <tbl_name> (
 col_name col_type,
 )
