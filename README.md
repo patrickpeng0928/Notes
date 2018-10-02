@@ -25,6 +25,8 @@ ideas, code snipets, summaries, etc
 2. [scala](data_engineer/spark/scala.md)
 3. [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
 
+#### [Protegrity](data_engineer/protegrity) 
+1. [Protegrity_on_HDFS](data_engineer/protegrity/hdfs_protegrity.md)
 
 ### [Data Science](data_science)
 
