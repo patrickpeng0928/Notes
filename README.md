@@ -27,6 +27,7 @@ ideas, code snipets, summaries, etc
 
 #### [Protegrity](data_engineer/protegrity) 
 1. [Protegrity_on_HDFS](data_engineer/protegrity/hdfs_protegrity.md)
+2. [Protegrity_with_Spark(Scala)](data_engineer/protegrity/spark_protegrity.md)
 
 ### [Data Science](data_science)
 
