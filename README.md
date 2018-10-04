@@ -21,10 +21,10 @@ ideas, code snipets, summaries, etc
 2. [create_view](data_engineer/hive/hive_ddl/create_view.md)
 
 #### [Spark](data_engineer/spark)
-* [dataframe](data_engineer/spark/dataframe.md)
-* [RDD](data_engineer/spark/RDD.md)
-* [scala](data_engineer/spark/scala.md)
-* [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
+1. [dataframe](data_engineer/spark/dataframe.md)
+..1. [RDD](data_engineer/spark/RDD.md)
+..1. [scala](data_engineer/spark/scala.md)
+..1. [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
 
 #### [Protegrity](data_engineer/protegrity) 
 1. [Protegrity_on_HDFS](data_engineer/protegrity/hdfs_protegrity.md)
