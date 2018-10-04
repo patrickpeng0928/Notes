@@ -5,7 +5,7 @@
 ```
 
 ## Syntax
-![](https://phoenix.apache.org/language/index.html)
+https://phoenix.apache.org/language/index.html
 
 ### CREATE a table
 
