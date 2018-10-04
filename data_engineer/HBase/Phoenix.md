@@ -12,7 +12,7 @@ https://phoenix.apache.org/language/index.html
 
 ### SELECT rows from a table
 ```sql
-SELETE * FROM <tbl_name>;
+SELECT * FROM <tbl_name>;
 ```
 
 ### Delete rows in a table
