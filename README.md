@@ -6,7 +6,7 @@ ideas, code snipets, summaries, etc
 
 ## Code snipets
 
-### [General](general)
+### [__General__](general)
 
 #### [Linux](general/linux)
 * [bash](general/linux/bash.md)
