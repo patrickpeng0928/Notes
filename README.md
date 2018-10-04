@@ -9,7 +9,7 @@ ideas, code snipets, summaries, etc
 ### [General](general)
 
 #### [Linux](general/linux)
-1. [bash](general/linux/bash.md)
+* [bash](general/linux/bash.md)
 
 ### [Data Engineer](data_engineer)
 #### [Hive](data_engineer/hive)
@@ -21,9 +21,10 @@ ideas, code snipets, summaries, etc
 2. [create_view](data_engineer/hive/hive_ddl/create_view.md)
 
 #### [Spark](data_engineer/spark)
-1. [dataframe](data_engineer/spark/dataframe.md)
-2. [scala](data_engineer/spark/scala.md)
-3. [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
+* [dataframe](data_engineer/spark/dataframe.md)
+* [RDD](data_engineer/spark/RDD.md)
+* [scala](data_engineer/spark/scala.md)
+* [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
 
 #### [Protegrity](data_engineer/protegrity) 
 1. [Protegrity_on_HDFS](data_engineer/protegrity/hdfs_protegrity.md)
