@@ -22,9 +22,9 @@ ideas, code snipets, summaries, etc
 
 #### [Spark](data_engineer/spark)
 1. [dataframe](data_engineer/spark/dataframe.md)
-..1. [RDD](data_engineer/spark/RDD.md)
-..1. [scala](data_engineer/spark/scala.md)
-..1. [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
+1. [RDD](data_engineer/spark/RDD.md)
+1. [scala](data_engineer/spark/scala.md)
+1. [merge_files_to_parquet.scala](data_engineer/spark/merge_files_to_parquet.scala)
 
 #### [Protegrity](data_engineer/protegrity) 
 1. [Protegrity_on_HDFS](data_engineer/protegrity/hdfs_protegrity.md)
