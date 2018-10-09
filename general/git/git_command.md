@@ -2,13 +2,13 @@
 ## rename a branch
 1. Rename your local branch.
 
-If you are on the branch you want to rename:
+  * If you are on the branch you want to rename:
 
-```git
-git branch -m new-name
-```
+  ```sh
+  git branch -m new-name
+  ```
 
-If you are on a different branch:
+  * If you are on a different branch:
 ```
 git branch -m old-name new-name
 ```
