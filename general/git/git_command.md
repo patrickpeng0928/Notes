@@ -4,9 +4,9 @@
 
   * If you are on the branch you want to rename:
 
-  ```sh
-  git branch -m new-name
-  ```
+ ```sh
+ git branch -m new-name
+ ```
 
   * If you are on a different branch:
 ```
@@ -20,12 +20,12 @@ git push origin :old-name new-name
 
 3. Reset the upstream branch for the new-name local branch.
 
-Switch to the branch and then:
+ * Switch to the branch and then:
 ```
 git push origin -u new-name
 ```
 
-Or you as a fast way to do that, you can use these 3 steps: command in your terminal
+ * Or you as a fast way to do that, you can use these 3 steps: command in your terminal
 ```
 git branch -m old_branch new_branch         # Rename branch locally    
 
