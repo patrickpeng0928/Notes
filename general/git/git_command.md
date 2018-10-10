@@ -1,4 +1,11 @@
 # Common Git Command
+
+## Config Auto LF when commit
+```
+git config core.eol lf
+git config core.autocrlf input
+```
+
 ## rename a branch
 1. Rename your local branch.
 
