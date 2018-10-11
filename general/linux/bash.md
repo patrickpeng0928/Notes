@@ -2,6 +2,34 @@
 
 http://tldp.org/LDP/abs/html/index.html
 
+## work around with temp file
+```bash
+#--------------------------------------------------------------------------
+# Cleanup temporary file in case of keyboard interrupt or termination signal.
+#--------------------------------------------------------------------------
+function cleanup_temp {
+    [ -e $tmpfile ] && rm --force $tmpfile
+    exit 0
+}
+trap cleanup_temp SIGHUP SIGINT SIGPIPE SIGTERM
+
+tmpfile=$(mktemp) || { echo "$0: creation of temporary file failed!"; exit 1; }
+
+# ... use tmpfile ...
+
+rm --force $tmpfile
+```
+
+## filename and dirname althernatives
+```
+for pathname in $(find $search -type f -name "*" -print)
+do
+    basename=${pathname##*/}   # replaces basename "$pathname"
+    dirname=${pathname%/*}     # replaces dirname "$pathname"
+# .... 
+done
+```
+
 ## date
 
 `date [option] ... [+Format]`
@@ -183,6 +211,15 @@ echo ${!var2} # xyz
 var="aBc"
 echo ${var^^} # ABC
 echo ${var,,} # abc
+```
+
+### Pattern matching
+```bash
+metacharacter=’[~&|]’
+if [[ "$variable_name" =~ $metacharacter ]]
+then
+    # treat metacharacter
+fi
 ```
 
 ### Array
