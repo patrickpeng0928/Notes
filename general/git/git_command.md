@@ -4,6 +4,8 @@
 ```
 git config core.eol lf
 git config core.autocrlf input
+
+git config --global core.autocrlf true
 ```
 
 ## rename a branch
