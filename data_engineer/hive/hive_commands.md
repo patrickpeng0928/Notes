@@ -30,3 +30,8 @@ SET VARIABLE_NAME=vale;
 SET hive.exec.dynamic.partition = true;
 SET hive.exec.dynamic.partition.mode = nonstrict;
 ```
+
+## Compression
+```hive
+set parquet.compression=SNAPPY;
+```
