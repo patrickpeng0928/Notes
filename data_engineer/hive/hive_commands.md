@@ -19,19 +19,3 @@ DROP VIEW IF EXISTS <view_name>;
 ```hive
 MSCK REPAIR TABLE ${table};
 ```
-
-## Set variable
-```hive
-SET VARIABLE_NAME=vale;
-```
-
-## Dynamic partition
-```hive
-SET hive.exec.dynamic.partition = true;
-SET hive.exec.dynamic.partition.mode = nonstrict;
-```
-
-## Compression
-```hive
-set parquet.compression=SNAPPY;
-```
