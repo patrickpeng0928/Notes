@@ -2,6 +2,7 @@
 
 ## Date Conversions
 ### Hive Functions
+
 | Return Type | Name(Signature) | Description |
 | string | from_unixtime(bigint unixtime[, string format]) | Converts the number of seconds from unix epoch (1970-01-01 00:00:00 UTC) to a string representing the timestamp of that moment in the current system time zone in the format of "1970-01-01 00:00:00". |
 | bigint | unix_timestamp() | Gets current Unix timestamp in seconds. This function is not deterministic and its value is not fixed for the scope of a query execution, therefore prevents proper optimization of queries - this has been deprecated since 2.0 in favour of CURRENT_TIMESTAMP constant. |
