@@ -1,4 +1,5 @@
 # Sed
+`**sed**: a non-interactive text file editor`
 
 ## Examples
 ```bash
