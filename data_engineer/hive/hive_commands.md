@@ -2,7 +2,11 @@
 
 ## Date conversions
 * use dt (String) as date column in String
-
+* input_format (String) as input format
+* ouput_format (String)  as output format
+```hive
+from_unixtime(unix_timestamp(dt, input_format), output_format)
+```
 
 | Input Format | Code | Output Format |
 | --- | --- | --- |
