@@ -4,7 +4,9 @@ http://tldp.org/LDP/abs/html/index.html
 
 ## [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
 * head
+
 `Output the first part of files, prints the first part (10 lines by default) of each file.`
+
 ```bash
 head [options]... [file]...
 ```
@@ -19,6 +21,37 @@ head [options]... [file]...
 | -q</p>--quiet</p>--silent | Never print file name headers. | |
 | -v</p>--verbose | Always print file name headers. | |
 
+* tail
+
+`Output the last part of files, print the last part (10 lines by default) of each FILE; 
+tail reads from standard input if no files are given or when given a FILE of -
+`
+
+```bash
+tail [options]... [file]...
+```
+
+
+| Options | Description | Examples |
+| --- | --- | --- |
+| -c</p>--bytes=K | Output the last K bytes; alternatively, use -c +K to output bytes starting with the Kth of each file. |  |
+| -f</p>--follow[={name|descriptor}] | Output appended data as the file grows; -f, --follow, and --follow=descriptor are equivalent |  |
+| -F | Same as --follow=name --retry |  |
+| -n, --lines=K | Output the last K lines, instead of the last 10; or use -n +K to output lines starting with the Kth |  |
+| --max-unchanged-stats=N | With --follow=name, reopen a FILE which has not changed size after N (default 5) iterations </p>to see if it has been unlinked or renamed (this is the usual case of rotated log files). </p>With inotify, this option is rarely useful.|  |
+| --pid=PID | With -f, terminate after process ID, PID dies |  |
+| -q, --quiet, --silent | Never output headers giving file names |  |
+| --retry | Keep trying to open a file even when it is or becomes inaccessible; </p>useful when following by name, i.e., with --follow=name|  |
+| -s, --sleep-interval=N | With -f, sleep for approximately N seconds (default 1.0) between iterations. </p>With inotify and --pid=P, check process P at least once every N seconds. |  |
+| -v, --verbose | Always output headers giving file names |  |
+| --help | Display this help and exit |  |
+| --version | Output version information and exit|  |
+
+* Example
+```bash
+# Extract lines 40-50 from a file, first using head to get the first 50 lines then tail to get the last 10
+head -50 file.txt | tail -10
+```
 
 ## work around with temp file
 ```bash
