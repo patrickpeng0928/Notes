@@ -4,6 +4,8 @@ http://tldp.org/LDP/abs/html/index.html
 
 ## [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
 * head
+
+
 | Option | Description | Examples |
 | --- | --- | --- |
 | -*NUMBER* | Return the first *NUMBER* of lines from the file. (must be the first option specified) | `ls -l | head -85` |
