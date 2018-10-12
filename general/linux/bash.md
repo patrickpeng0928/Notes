@@ -2,6 +2,10 @@
 
 http://tldp.org/LDP/abs/html/index.html
 
+## head(https://ss64.com/bash/head.html) and tail(https://ss64.com/bash/tail.html)
+
+
+
 ## work around with temp file
 ```bash
 #--------------------------------------------------------------------------
@@ -416,16 +420,5 @@ done
 ```
 
 
-## grep
 
 
-
-## sed
-
-`**sed**: a non-interactive text file editor`
-
-## awk
-
-`**awk**: a field-oriented pattern processing language with a **C**-style syntax`
-
-https://likegeeks.com/awk-command/
