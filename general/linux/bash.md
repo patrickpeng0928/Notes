@@ -35,7 +35,7 @@ tail [options]... [file]...
 | Options | Description | Examples |
 | --- | --- | --- |
 | -c</p>--bytes=K | Output the last K bytes; alternatively, use -c +K to output bytes starting with the Kth of each file. |  |
-| -f</p>--follow[="{name|descriptor}"] | Output appended data as the file grows; -f, --follow, and --follow=descriptor are equivalent |  |
+| -f</p>--follow[=`{name|descriptor}`] | Output appended data as the file grows; -f, --follow, and --follow=descriptor are equivalent |  |
 | -F | Same as --follow=name --retry |  |
 | -n, --lines=K | Output the last K lines, instead of the last 10; or use -n +K to output lines starting with the Kth |  |
 | --max-unchanged-stats=N | With --follow=name, reopen a FILE which has not changed size after N (default 5) iterations </p>to see if it has been unlinked or renamed (this is the usual case of rotated log files). </p>With inotify, this option is rarely useful.|  |
