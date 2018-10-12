@@ -8,7 +8,7 @@ http://tldp.org/LDP/abs/html/index.html
 
 | Option | Description | Examples |
 | --- | --- | --- |
-| -*NUMBER* | Return the first *NUMBER* of lines from the file. (must be the first option specified) | ```ls -l | head -85``` |
+| -*NUMBER* | Return the first *NUMBER* of lines from the file. (must be the first option specified) | `head -85 file.txt` |
 
 ## work around with temp file
 ```bash
