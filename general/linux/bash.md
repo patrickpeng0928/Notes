@@ -367,7 +367,7 @@ esac
 
 
 ## IF
-### [Compare](http://tldp.org/LDP/abs/html/comparison-ops.html)
+### [Compare Ops](http://tldp.org/LDP/abs/html/comparison-ops.html)
 ### Compare date
 * You can compare [lexicographically](https://en.wikipedia.org/wiki/Lexicographical_order) with the [conditional construct](https://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs) `[[ ]]` in this way:
 
