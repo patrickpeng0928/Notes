@@ -2,6 +2,32 @@
 
 http://tldp.org/LDP/abs/html/index.html
 
+## cut
+
+`Divide a file into several parts (columns)
+Writes to standard output selected parts of each line of each input file, or standard input if no files are given or for a file name of '-'.`
+
+```bash
+cut [OPTION]... [FILE]...
+```
+
+
+| Options | Description | Examples |
+| --- | --- | --- |
+| -b BYTE-LIST</p>--bytes=BYTE-LIST | Print only the bytes in positions listed in BYTE-LIST. Tabs and </p>backspaces are treated like any other character; they take up 1 </p>byte. |
+| -c CHARACTER-LIST</p>--characters=CHARACTER-LIST | Print only characters in positions listed in CHARACTER-LIST. The </p>same as `-b' for now, but internationalization will change that. </p>Tabs and backspaces are treated like any other character; they </p>take up 1 character. |
+| -f FIELD-LIST</p>--fields=FIELD-LIST | Print only the fields listed in FIELD-LIST. Fields are separated </p>by a TAB character by default. |
+| -d INPUT_DELIM_BYTE</p>--delimiter=INPUT_DELIM_BYTE | For `-f', fields are separated in the input by the first character </p>in INPUT_DELIM_BYTE (default is TAB). |
+| -n | Do not split multi-byte characters (no-op for now). |
+| -s</p>--only-delimited | For `-f', do not print lines that do not contain the field </p>separator character. |
+| --output-delimiter=OUTPUT_DELIM_STRING | For `-f', output fields are separated by OUTPUT_DELIM_STRING The </p>default is to use the input delimiter. |
+
+* Examples
+```bash
+# split the variable by "_" and get the first element
+cut -d"_" -f1 <<< "$variable"
+```
+
 ## [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
 * head
 
