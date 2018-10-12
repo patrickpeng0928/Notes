@@ -35,9 +35,9 @@ tail [options]... [file]...
 | Options | Description | Examples |
 | --- | --- | --- |
 | -c</p>--bytes=K | Output the last K bytes; alternatively, use -c +K to output bytes starting with the Kth of each file. |  |
-| -f</p>--follow[=`{name|descriptor}`] | Output appended data as the file grows; -f, --follow, and --follow=descriptor are equivalent |  |
-| -F | Same as --follow=name --retry |  |
-| -n, --lines=K | Output the last K lines, instead of the last 10; or use -n +K to output lines starting with the Kth |  |
+| -f</p>--follow[={name descriptor}] | Output appended data as the file grows; -f, --follow, and --follow=descriptor are equivalent | `tail -f /var/log/wifi.log` |
+| -F | Same as --follow=name --retry | `tail -F /var/log/wifi.log` |
+| -n, --lines=K | Output the last K lines, instead of the last 10; or use -n +K to output lines starting with the Kth | `tail -85 file.txt` |
 | --max-unchanged-stats=N | With --follow=name, reopen a FILE which has not changed size after N (default 5) iterations </p>to see if it has been unlinked or renamed (this is the usual case of rotated log files). </p>With inotify, this option is rarely useful.|  |
 | --pid=PID | With -f, terminate after process ID, PID dies |  |
 | -q, --quiet, --silent | Never output headers giving file names |  |
@@ -49,7 +49,24 @@ tail [options]... [file]...
 
 * Example
 ```bash
+# Extract the first 85 lines from a file:
+head -85 file.txt
+
 # Extract lines 40-50 from a file, first using head to get the first 50 lines then tail to get the last 10
+head -50 file.txt | tail -10
+
+# Extract the last 85 lines from a file:
+tail -85 file,txt
+
+# Output the newly appended lines of a file instantly:
+tail -f /var/log/wifi.log
+
+# Output newly appended lines, and keep trying if the file is temporarily inaccessible:
+tail -f /var/log/wifi.log --retry
+# or
+tail -F /var/log/wifi.log
+
+# Extract lines 40-50 from a file, first using head to get the first 50 lines then tail to get the last 10:
 head -50 file.txt | tail -10
 ```
 
