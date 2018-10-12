@@ -367,7 +367,32 @@ esac
 
 
 ## IF
+### [Compare](http://tldp.org/LDP/abs/html/comparison-ops.html)
+### Compare date
+* You can compare [lexicographically](https://en.wikipedia.org/wiki/Lexicographical_order) with the [conditional construct](https://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs) `[[ ]]` in this way:
 
+```bash
+[[ "2014-12-01T21:34:03+02:00" < "2014-12-01T21:35:03+02:00" ]] && echo "smaller"
+
+date1=2013-07-18
+date2=2013-07-15
+
+if [[ "$date1" > "$date2" ]] ; then
+    echo "break"
+fi
+```
+
+```bash
+date1=$(date -d 2013-07-18 +"%Y%m%d")    # = 20130718
+date2=$(date -d 2013-07-15 +"%Y%m%d")    # = 20130715
+
+date1=$(date -d 2013-07-18 +%s)
+date2=$(date -d 2014-08-19 +%s)
+
+if [ $date1 -ge $date2 ]; then
+ echo 'yes';
+fi
+```
 
 ## Loop
 ### while
