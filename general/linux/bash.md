@@ -4,11 +4,21 @@ http://tldp.org/LDP/abs/html/index.html
 
 ## [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
 * head
+`Output the first part of files, prints the first part (10 lines by default) of each file.`
+```bash
+head [options]... [file]...
+```
 
 
-| Option | Description | Examples |
+| Options | Description | Examples |
 | --- | --- | --- |
 | -*NUMBER* | Return the first *NUMBER* of lines from the file. (must be the first option specified) | `head -85 file.txt` |
+| -*Count*Options | This option is only recognized if it is specified first. Count is a decimal number optionally followed by a size letter ('b', 'k', 'm' for bytes, Kilobytes or Megabytes) , or 'l' to mean count by lines, or other option letters ('cqv'). | |
+| -c BYTES</p>--bytes=BYTES | Print the first BYTES bytes, instead of initial lines.  Appending 'b' multiplies BYTES by 512, 'k' by 1024, and 'm' by 1048576. | |
+| -n N</p>--lines=N | Output the first N lines. | |
+| -q</p>--quiet</p>--silent | Never print file name headers. | |
+| -v</p>--verbose | Always print file name headers. | |
+
 
 ## work around with temp file
 ```bash
