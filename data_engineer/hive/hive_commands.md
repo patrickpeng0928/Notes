@@ -4,13 +4,13 @@
 ### Hive Functions
 
 
-| Return Type | Name(Signature) | Description |
+| **Return Type** | **Name(Signature)** | **Description** |
 | --- | --- | --- |
 | string | from_unixtime(bigint unixtime[, string format]) | Converts the number of seconds from unix epoch (1970-01-01 00:00:00 UTC) to a string representing the timestamp of that moment in the current system time zone in the format of "1970-01-01 00:00:00". |
 | bigint | unix_timestamp() | Gets current Unix timestamp in seconds. This function is not deterministic and its value is not fixed for the scope of a query execution, therefore prevents proper optimization of queries - this has been deprecated since 2.0 in favour of CURRENT_TIMESTAMP constant. |
 | bigint | unix_timestamp(string date) | Converts time string in format <code>yyyy-MM-dd HH:mm:ss</code> to Unix timestamp (in seconds), using the default timezone and the default locale, return 0 if fail: unix_timestamp('2009-03-20 11:30:01') = 1237573801 |
 | bigint | unix_timestamp(string date, string pattern) | Convert time string with given pattern (see http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html) to Unix time stamp (in seconds), return 0 if fail: unix_timestamp('2009-03-20', 'yyyy-MM-dd') = 1237532400. |
-| *pre 2.1.0:* string</p>*2.1.0 on:* date | to_date(string timestamp) | Returns the date part of a timestamp string (pre-Hive 2.1.0): to_date("1970-01-01 00:00:00") = "1970-01-01". As of Hive 2.1.0, returns a date object. Prior to Hive 2.1.0 ([HIVE-13248](https://issues.apache.org/jira/browse/HIVE-13248)) the return type was a String because no Date type existed when the method was created. |
+| <p>*pre 2.1.0:* string</p><p>*2.1.0 on:* date | to_date(string timestamp)</p> | Returns the date part of a timestamp string (pre-Hive 2.1.0): to_date("1970-01-01 00:00:00") = "1970-01-01". As of Hive 2.1.0, returns a date object. Prior to Hive 2.1.0 ([HIVE-13248](https://issues.apache.org/jira/browse/HIVE-13248)) the return type was a String because no Date type existed when the method was created. |
 | int | year(string date) | Returns the year part of a date or a timestamp string: year("1970-01-01 00:00:00") = 1970, year("1970-01-01") = 1970. |
 | int | quarter(date/timestamp/string) | Returns the quarter of the year for a date, timestamp, or string in the range 1 to 4 (as of Hive [1.3.0](https://issues.apache.org/jira/browse/HIVE-3404)). Example: quarter('2015-04-08') = 2. |
 | int | month(string date) | Returns the month part of a date or a timestamp string: month("1970-11-01 00:00:00") = 11, month("1970-11-01") = 11. |
