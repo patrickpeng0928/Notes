@@ -1,4 +1,10 @@
 # DataFrame Operations
+## imports
+```
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.functions._
+```
+
 ## Filters
 ### Filter data by dates
 ```scala
