@@ -220,6 +220,28 @@ def selectColumnsFillMissingColNull(
 ```
 
 ## Transformations
+### Add columns
+```scala
+  /**
+    * add a new column of value to df
+    * @param target_col        String, name of target column
+    * @param value             String, value of target column
+    * @param df                DataFrame
+    * @return                  DataFrame
+    */
+  def addString(
+    target_col: String,
+    value: String
+  )(
+    df: DataFrame
+  ): DataFrame = {
+    df.withColumn(
+      target_col
+      , lit(value)
+    )
+  }
+```
+
 ### date conversion
 ```scala
 df.withColumn("date", to_date(unix_timestamp(df.col("your_date_column"), "your_date_format").cast("timestamp")))
