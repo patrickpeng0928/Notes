@@ -242,6 +242,30 @@ def selectColumnsFillMissingColNull(
   }
 ```
 
+### Change values
+```scala
+  /**
+    * change column value based on conditions
+    * @param target_col        String, name of target column
+    * @param condition_col     String, name of condition column
+    * @param value             String, value of condition column
+    * @param df                DataFrame
+    * @return                  DataFrame
+    */
+  def addString(
+    target_col: String,
+    condition_col: String,
+    value: String
+  )(
+    df: DataFrame
+  ): DataFrame = {
+    df.withColumn(
+      target_col
+      , when(col(condition_col) === value, *new_value*).otherwise(col(target_col))
+    )
+  }
+```
+
 ### date conversion
 ```scala
 df.withColumn("date", to_date(unix_timestamp(df.col("your_date_column"), "your_date_format").cast("timestamp")))
