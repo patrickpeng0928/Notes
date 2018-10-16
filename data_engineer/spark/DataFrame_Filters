@@ -185,3 +185,29 @@ def selectExistingColumns(
 
   return df.select(valid_cols:_*)
 }
+
+/**
+  * UDF: return null
+  */
+val getNull: UserDefinedFunction = udf(() => None: Option[String])
+
+/**
+  * Select columns from a DataFrame
+  * if the column doesn't exist in the DataFrame, fill it will null
+  * @param df               source, DataFrame
+  * @param col_names        a list of column names, List[String]
+  * @return                 DataFrame
+  */
+def selectColumnsFillMissingColNull(
+                                     df: DataFrame
+                                     , col_names: List[String]
+                                   ): DataFrame = {
+  val existing_cols_df = selectExistingColumns(df, col_names)
+  val result_df = col_names.foldLeft(existing_cols_df)((dff: DataFrame, col: String) => hasColumn(df, col) match {
+    case true     => dff
+    case false    => dff.withColumn(col, getNull())
+  })
+
+  return result_df
+}
+```
