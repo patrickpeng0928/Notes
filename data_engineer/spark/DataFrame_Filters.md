@@ -1,6 +1,6 @@
 # DataFrame Filters
 ## Filter data by dates
-```
+```scala
 /**
   * Filter data by start date and end date(exclusive)
   * @param df               source, DataFrame
@@ -86,10 +86,9 @@ def filter_data_by_date(
   }
   return dff
 }
-```
 
 ## Filter data by conditions
-```
+```scala
 /**
   * Filter data by some conditions (and)
   * @param df               source, DataFrame
@@ -143,7 +142,7 @@ def filter_data_by_condition(
 ```
 
 ## select columns
-```
+```scala
 /**
   * Select columns from a DataFrame
   * @param df               source, DataFrame
