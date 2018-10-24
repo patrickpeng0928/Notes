@@ -506,6 +506,10 @@ $ true || echo howdy!
 
 $ false || echo howdy!
 howdy!
+
+$ [ -f <filename.extension> ] && echo "file found" || echo "file not found"
+$ [[ -f <filename.extension> ]] && echo "file found" || echo "file not found"
+
 ```
 
 #### Others
