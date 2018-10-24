@@ -2,6 +2,7 @@
 ## Command line interface: spark-shell
 ```bash
 spark-shell --conf spark.ui.port=PORT_NUMBER
+# PORT_NUMBER < 65535
 
 spark-shell --conf spark.port.maxRetries=RETRY_NUMBER
 ```
