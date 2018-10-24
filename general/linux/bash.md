@@ -259,6 +259,12 @@ date -d 1may '+%B %d' 			     # May 01
 $(date +%Y-%m-%d:%H:%M:%S)
 ```
 
+5. using pipe to pass date value to `date`:
+
+```bash
+echo  "Oct 10" | { read dt ; date -d "$dt" ; }
+```
+
 ## Redirection
 
 `echo “” 2>&1 | tee -a /path/to/log/file.log` Redirect `stderr` to file descriptor 1 (`stdout`), `&` indicates that what follows is a file descriptor, not a filename.
