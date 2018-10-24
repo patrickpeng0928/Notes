@@ -468,6 +468,52 @@ esac
 
 ## IF
 ### [Compare Ops](http://tldp.org/LDP/abs/html/comparison-ops.html)
+### && and ||
+#### Within IF
+* && AND
+
+```bash
+if [ $condition1 ] && [ $condition2 ]
+#  Same as:  if [ $condition1 -a $condition2 ]
+#  Returns true if both condition1 and condition2 hold true...
+
+if [[ $condition1 && $condition2 ]]    # Also works.
+# Note that && operator not permitted inside brackets
+# of [ ... ] construct.
+```
+
+* || OR
+
+```bash
+if [ $condition1 ] || [ $condition2 ]
+# Same as:  if [ $condition1 -o $condition2 ]
+# Returns true if either condition1 or condition2 holds true...
+
+if [[ $condition1 || $condition2 ]]    # Also works.
+# Note that || operator not permitted inside brackets
+# of a [ ... ] construct.
+```
+
+#### Without IF
+* The right side of && will only be evaluated if the exit status of the left side is zero. || is the opposite: it will evaluate the right side only if the left side exit status is nonzero. You can consider [ ... ] to be a program with a return value. If the test inside evaluates to true, it returns zero; it returns nonzero otherwise.
+
+```bash
+$ false && echo howdy!
+
+$ true && echo howdy!
+howdy!
+$ true || echo howdy!
+
+$ false || echo howdy!
+howdy!
+```
+
+#### Others
+* "A ; B" Run A and then B, regardless of success of A
+* "A && B" Run B if A succeeded
+* "A || B" Run B if A failed
+* "A &" Run A in background.
+
 ### Compare date
 * You can compare [lexicographically](https://en.wikipedia.org/wiki/Lexicographical_order) with the [conditional construct](https://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs) `[[ ]]` in this way:
 
