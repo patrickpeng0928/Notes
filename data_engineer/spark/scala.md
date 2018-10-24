@@ -1,4 +1,10 @@
 # Scala Functions
+## Command line interface: spark-shell
+```bash
+spark-shell --conf "spark.ui.port=PORT_NUMBER"
+
+spark-shell --conf “spark.port.maxRetries=RETRY_NUMBER”
+```
 ## date
 ### import packages
 ```scala
