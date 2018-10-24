@@ -11,7 +11,7 @@ hdfs dfs -ls $path | awk '{FILEDATE=$6;print FILEDATE}' | tail -1
 ```
 
 ## split
-### split a variable and get the last field
+### split a variable with delimiter and get the last field
 ```
 $ eho "ab_cd_20180101" | awk -F_ '{print $NF}'
 # 20180101
