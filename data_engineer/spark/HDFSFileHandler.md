@@ -8,6 +8,11 @@ import org.apache.hadoop.fs.{FSDataOutputStream, FileSystem, Path}
 
 ## HDFS Configuration
 ```scala
+/**
+  * create a file system pointing to hdfs
+  *
+  * @return FileSystem        : org.apache.hadoop.fs.FileSystem
+  */
 def configureHDFS(): FileSystem = {
   val fs: FileSystem = try {
     val conf: Configuration = new Configuration()
