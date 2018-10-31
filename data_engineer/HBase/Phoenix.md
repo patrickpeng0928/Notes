@@ -18,4 +18,5 @@ SELECT * FROM <tbl_name>;
 ### Delete rows in a table
 ```sql
 DELETE FROM <tbl_name>;
+DELETE FROM <tbl_name> WHERE <column_name> = '<value>';
 ```
