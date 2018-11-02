@@ -63,12 +63,13 @@ SELECT
         END       
       ELSE data_type 
     END "HISTORY_PARTITIONED_TBL"
-  , CASE column_name
-      WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN 'cu_account_nbr' || ', '
-      WHEN 'CU_ACCOUNT_TOKEN'     THEN 'cu_account_nbr' || ', '
-      WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN 'tr_account_nbr' || ', '
+  , CASE UPPER(column_name)
+      WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN LOWER(column_name) || ' as cu_account_nbr' || ','
+      WHEN 'CU_ACCOUNT_TOKEN'     THEN LOWER(column_name) || ' as cu_account_nbr' || ','
+      WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN LOWER(column_name) || ' as tr_account_nbr' || ','
       WHEN 'TR_TRAN_DATE'         THEN ''
-      ELSE LOWER(column_name)                           || ', '
+      WHEN 'PARTITIONED_DATE'     THEN 'partitioned_date as tr_tran_date,'
+      ELSE                             LOWER(column_name) || ','
     END "MAPPING_VIEW"
 FROM all_tab_columns
 WHERE 
@@ -261,12 +262,13 @@ WHERE
 
 ```sql
 SELECT
-  CASE column_name
-    WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN 'cu_account_nbr' || ', '
-    WHEN 'CU_ACCOUNT_TOKEN'     THEN 'cu_account_nbr' || ', '
-    WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN 'tr_account_nbr' || ', '
+  CASE UPPER(column_name)
+    WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN LOWER(column_name) || ' as cu_account_nbr' || ','
+    WHEN 'CU_ACCOUNT_TOKEN'     THEN LOWER(column_name) || ' as cu_account_nbr' || ','
+    WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN LOWER(column_name) || ' as tr_account_nbr' || ','
     WHEN 'TR_TRAN_DATE'         THEN ''
-    ELSE LOWER(column_name)                           || ', '
+    WHEN 'PARTITIONED_DATE'     THEN 'partitioned_date as tr_tran_date,'
+    ELSE                             LOWER(column_name) || ','
   END "MAPPING_VIEW"
 FROM all_tab_columns
 WHERE 
