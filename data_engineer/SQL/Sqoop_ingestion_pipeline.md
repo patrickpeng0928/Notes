@@ -4,7 +4,7 @@
 * Data Type conversion from Oracle to Hive
 
 
-|:Data Type in Oracle:|:Data Type in Hive:|
+| Data Type in Oracle | Data Type in Hive |
 | -------------------:|:----------------- |
 | VARCHAR2            | string            |
 | DATE                | date              |
