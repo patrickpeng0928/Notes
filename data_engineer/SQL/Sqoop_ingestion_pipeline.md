@@ -1,6 +1,14 @@
 # Using SQL in the Sqoop job and inherrit Data Type from DWH in Hive
 
 ## Get table schema from DWH
+* Data Type conversion from Oracle to Hive
+
+
+| Data Type in Oracle | Data Type in Hive |
+| --- :|: --- |
+| VARCHAR2 | string|
+
+
 ```sql
 -- get column information from table and views in database
 SELECT 
