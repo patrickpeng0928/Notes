@@ -11,3 +11,11 @@ set hive.exec.max.dynamic.partitions.pernode = 400;
 ```hive
 set parquet.compression=SNAPPY;
 ```
+
+## queue
+```hive
+-- for mr job
+set mapred.job.queue.name=<queuename>;
+-- for tez job
+set tez.queue.name=<queuename>;
+```
