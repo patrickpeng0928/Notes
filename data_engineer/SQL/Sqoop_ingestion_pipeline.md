@@ -63,8 +63,13 @@ SELECT
         END       
       ELSE data_type 
     END "HISTORY_PARTITIONED_TBL"
-  ,  ', ' 
-  || LOWER(column_name) "MAPPING_VIEW"
+  , CASE column_name
+      WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN 'cu_account_nbr' || ', '
+      WHEN 'CU_ACCOUNT_TOKEN'     THEN 'cu_account_nbr' || ', '
+      WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN 'tr_account_nbr' || ', '
+      WHEN 'TR_TRAN_DATE'         THEN ''
+      ELSE LOWER(column_name)                           || ', '
+    END "MAPPING_VIEW"
 FROM all_tab_columns
 WHERE 
   UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
@@ -256,10 +261,15 @@ WHERE
 
 ```sql
 SELECT
-     ', ' 
-  || LOWER(column_name) "MAPPING_VIEW"
+  CASE column_name
+    WHEN 'CU_CUR_ACCOUNT_TOKEN' THEN 'cu_account_nbr' || ', '
+    WHEN 'CU_ACCOUNT_TOKEN'     THEN 'cu_account_nbr' || ', '
+    WHEN 'TR_CUR_ACCOUNT_TOKEN' THEN 'tr_account_nbr' || ', '
+    WHEN 'TR_TRAN_DATE'         THEN ''
+    ELSE LOWER(column_name)                           || ', '
+  END "MAPPING_VIEW"
 FROM all_tab_columns
-WHERE
+WHERE 
   UPPER(table_name) = '<TBL_NAME>'
 ;
 ```
