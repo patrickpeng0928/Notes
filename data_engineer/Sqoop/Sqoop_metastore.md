@@ -1,6 +1,6 @@
-# Sqoop
+# Sqoop Metastore
 
-## Change Sqoop job metastore
+## Locate Sqoop job metastore
 ```bash
 cd ~/.sqoop
 vi metastore.db.script
