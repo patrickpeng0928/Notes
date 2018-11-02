@@ -24,6 +24,47 @@ SELECT
         END       
       ELSE data_type 
     END "HIVE_DATA_TYPE"
+  ,  ', ' 
+  || column_name "SQOOP_SQL"  
+  ,  ', '
+  || LOWER(column_name)
+  || ' string' "INCRE_TABLE"
+  ,  ', case when trim('
+  || column_name
+  || ')="" then null when ascii('
+  || column_name
+  || ')=0 then null else '
+  || (CASE data_type
+        WHEN 'DATE' THEN 'to_date('||column_name||')'
+        WHEN 'VARCHAR2' THEN column_name
+        ELSE CASE 
+                WHEN data_precision > 32 OR data_scale <> 0 THEN 'cast '||column_name||' as decimal('||data_precision||', '||data_scale||')'
+                WHEN data_precision <= 8 AND data_scale = 0 THEN 'cast '||column_name||'as int)'
+                WHEN data_precision > 8 AND data_scale =0 THEN 'cast '||column_name||' as bigint)'
+             END
+      END)
+  || ' end as '
+  || LOWER(column_name) "INCRE_VIEW"
+  ,  ', '
+  || LOWER(column_name)
+  || ' '
+  || CASE data_type
+      WHEN 'VARCHAR2' THEN 'string'
+      WHEN 'DATE'     THEN 'date'
+      WHEN 'NUMBER'   THEN 
+        CASE
+          WHEN data_scale <> 0 THEN 'decimal(' || data_precision || ',' || data_scale || ')'
+          ELSE 
+            CASE
+              WHEN data_precision > 32 THEN 'decimal(' || data_precision || ',' || data_scale || ')'
+              WHEN data_precision <= 8 THEN 'int'
+              ELSE 'bigint'
+            END
+        END       
+      ELSE data_type 
+    END "HISTORY_PARTITIONED_TBL"
+  ,  ', ' 
+  || LOWER(column_name) "MAPPING_VIEW"
 FROM all_tab_columns
 WHERE 
   UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
@@ -124,7 +165,6 @@ FROM all_tab_columns
 WHERE
   UPPER(table_name) = '<TBL_NAME>'
 ;
-    
 ```
 
 ## Sql for Sqoop output data (All String format)
@@ -198,6 +238,28 @@ SELECT
     END "HISTORY_PARTITIONED_TBL"
 FROM all_tab_columns
 WHERE 
+  UPPER(table_name) = '<TBL_NAME>'
+;
+```
+
+## Sql for mapping view
+* format: , col_name
+* mapping
+
+| column_name          | mapping        |
+| -------------------- | -------------- |
+| CU_CUR_ACCOUNT_TOKEN | cu_account_nbr |
+| CU_ACCOUNT_TOKEN     | cu_account_nbr |
+| TR_CUR_ACCOUNT_TOKEN | tr_account_nbr |
+| TR_TRAN_DATE         | ""             |
+| partitioned_date     | tr_tran_date   |
+
+```sql
+SELECT
+     ', ' 
+  || LOWER(column_name) "MAPPING_VIEW"
+FROM all_tab_columns
+WHERE
   UPPER(table_name) = '<TBL_NAME>'
 ;
 ```
