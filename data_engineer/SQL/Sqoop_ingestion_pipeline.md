@@ -46,13 +46,34 @@ OR UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
 ```
 
 ## Sql for sqoop job
-
+* format: , col_name
+```sql
+SELECT
+     ', ' 
+  || column_name
+FROM all_tab_columns
+WHERE
+  UPPER(table_name) = '<TBL_NAME>'
+;
+    
+```
 
 ## Sql for Sqoop output data (All String format)
+* format: , col_name *string*
+```sql
+SELECT
+     ', '
+  || LOWER(column_name)
+  || ' string'
+FROM all_tab_columns
+WHERE
+  UPPER(table_name) = '<TBL_NAME>'
+;
+```
 
 ## Sql for data conversion from String to corresponding data type inherrited from DWH table
+* format: , case when trim(col_name) = 0 then null when ascii(col_name) = 0 then null else date_type_convert(col_name) end as col_name
 * data clean
-
 | Content in string | condition expr | value |
 | ----------------- | -------------- | ----- | 
 | ""                | col = ""       | null  |
@@ -61,7 +82,7 @@ OR UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
 
 ```sql
 SELECT 
-     'case when trim('
+     ', case when trim('
   || column_name
   || ')="" then null when ascii('
   || column_name
@@ -76,8 +97,7 @@ SELECT
              END
       END)
   || ' end as '
-  || lower(column_name)
-  || ','
+  || LOWER(column_name)
 FROM all_tab_columns
 WHERE
   UPPER(table_name) = '<TBL_NAME>'
