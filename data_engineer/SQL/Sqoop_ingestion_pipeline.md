@@ -6,7 +6,7 @@
 
 
 | Data Type in Oracle | Data Type in Hive |
-| --- :|: --- |
+ --- :|: --- 
 | VARCHAR2 | string|
 
 
