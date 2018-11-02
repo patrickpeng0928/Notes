@@ -47,8 +47,41 @@ OR UPPER(table_name) LIKE '%<tbl_name_pattern>%'
 
 ## Sql for sqoop job
 
+
 ## Sql for Sqoop output data (All String format)
 
 ## Sql for data conversion from String to corresponding data type inherrited from DWH table
+* data clean
+
+| Content in string | condition expr | value |
+| -----------------:| -------------- | ----- | 
+| ""                | col = ""       | null  |
+| "\s+"             | trim(col) = "" | null  |
+| "\0"              | ascii(col) = 0 | null  |
+
+```sql
+SELECT 
+     'CASE WHEN TRIM('
+  || column_name
+  || ')="" THEN null WHEN ascii('
+  || column_name
+  || ')=0 THEN null ELSE '
+  || (CASE data_type
+        WHEN 'DATE' THEN 'TO_DATE('||column_name||')'
+        WHEN 'VARCHAR2' THEN column_name
+        ELSE CASE 
+                WHEN data_precision > 32 OR data_scale <> 0 THEN 'CAST '||column_name||' AS DECIMAL('||data_precision||', '||data_scale||')'
+                WHEN data_precision <= 8 AND data_scale = 0 THEN 'CAST '||column_name||' AS INT)'
+                WHEN data_precision > 8 AND data_scale =0 THEN 'CAST '||column_name||' AS BIGINT)'
+             END
+    END)
+  || ' END AS '
+  || column_name
+  || ','
+FROM all_tab_columns
+WHERE
+  UPPER(table_name) = 'REALTIME_PRIMARY_FACT'
+;
+```
 
 ## Sql for table or view after data conversion
