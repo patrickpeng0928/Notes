@@ -40,8 +40,8 @@ SELECT
     END "HIVE_DATA_TYPE"
 FROM all_tab_columns
 WHERE 
-  UPPER(table_name) LIKE '%<tbl_name_pattern>%'
-OR UPPER(table_name) LIKE '%<tbl_name_pattern>%'
+  UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
+OR UPPER(table_name) LIKE '%<TBL_NAME_PATTERN>%'
 ;
 ```
 
@@ -54,33 +54,33 @@ OR UPPER(table_name) LIKE '%<tbl_name_pattern>%'
 * data clean
 
 | Content in string | condition expr | value |
-| -----------------:| -------------- | ----- | 
+| ----------------- | -------------- | ----- | 
 | ""                | col = ""       | null  |
 | "\s+"             | trim(col) = "" | null  |
 | "\0"              | ascii(col) = 0 | null  |
 
 ```sql
 SELECT 
-     'CASE WHEN TRIM('
+     'case when trim('
   || column_name
-  || ')="" THEN null WHEN ascii('
+  || ')="" then null when ascii('
   || column_name
-  || ')=0 THEN null ELSE '
+  || ')=0 then null else '
   || (CASE data_type
-        WHEN 'DATE' THEN 'TO_DATE('||column_name||')'
+        WHEN 'DATE' THEN 'to_date('||column_name||')'
         WHEN 'VARCHAR2' THEN column_name
         ELSE CASE 
-                WHEN data_precision > 32 OR data_scale <> 0 THEN 'CAST '||column_name||' AS DECIMAL('||data_precision||', '||data_scale||')'
-                WHEN data_precision <= 8 AND data_scale = 0 THEN 'CAST '||column_name||' AS INT)'
-                WHEN data_precision > 8 AND data_scale =0 THEN 'CAST '||column_name||' AS BIGINT)'
+                WHEN data_precision > 32 OR data_scale <> 0 THEN 'cast '||column_name||' as decimal('||data_precision||', '||data_scale||')'
+                WHEN data_precision <= 8 AND data_scale = 0 THEN 'cast '||column_name||'as int)'
+                WHEN data_precision > 8 AND data_scale =0 THEN 'cast '||column_name||' as bigint)'
              END
-    END)
-  || ' END AS '
-  || column_name
+      END)
+  || ' end as '
+  || lower(column_name)
   || ','
 FROM all_tab_columns
 WHERE
-  UPPER(table_name) = 'REALTIME_PRIMARY_FACT'
+  UPPER(table_name) = '<TBL_NAME>'
 ;
 ```
 
