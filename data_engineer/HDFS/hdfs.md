@@ -9,3 +9,8 @@ hdfs dfs -text /path/to/files | hdfs dfs -put - /path/to/output/filename.ext
 ```
 hdfs dfs -touchz /path/to/files
 ```
+
+## Check node
+```
+hdfs fsck hdfs://path
+```
