@@ -4,11 +4,14 @@
 * Data Type conversion from Oracle to Hive
 
 
-
 | Data Type in Oracle | Data Type in Hive |
- --- :|: --- 
-| VARCHAR2 | string|
-
+| -------------------:|:----------------- |
+| VARCHAR2            | string            |
+| DATE                | date              |
+| NUMBER(\_, <>0      | decimal(\_, <>0)  |
+| NUMBER(>32, 0)      | decimal(>32, 0)   |
+| NUMBER(<=8, 0)      | int               |
+| NUMBER(8<&<=32, 0)  | bigint            |
 
 ```sql
 -- get column information from table and views in database
