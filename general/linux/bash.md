@@ -250,6 +250,9 @@ date -d '3 months 1 day' 			# Fri Dec  7 21:09:07 CST 2018
 date -d "$DATE_VARIABLE - 1 day" 				# 1 day before DATE_VARIABLE
 date -d "$DATE_VARIABLE 1 day ago" 	       # 1 day before DATE_VARIABLE
 date -d 1may '+%B %d' 			     # May 01
+
+last_sunday=$(date -d "last sunday" -I)
+sunday_before_last_sunday=$(date -d "$last_sunday - $(date -d $last_sunday +%u) days" -I)
 ```
 
 4. Used in shell script:
