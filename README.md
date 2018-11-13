@@ -10,6 +10,7 @@ ideas, code snipets, summaries, etc
 
 #### [Linux](general/linux)
 1. [bash](general/linux/bash.md)
+2. [git](general/git)
 
 ### [Data Engineer](data_engineer)
 #### [Hive](data_engineer/hive)
