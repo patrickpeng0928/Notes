@@ -2,6 +2,7 @@
 
 ## Hive settings
 * Character case setting
+
 `set spark.sql.caseSensitive=true`
 ```scala
 sqlContext.sql("set spark.sql.caseSensitive=false")
