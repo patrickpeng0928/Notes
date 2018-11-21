@@ -466,11 +466,60 @@ case "$1" in:
 		;;
 esac
 ```
+### Using case to set up different environments
+```
+HOST_NAME=$(hostname)
+PROD_HOSTNAME='prod_host'
+QA_HOSTNAME='qa_host'
+DEV_HOSTNAME='dev_host'
+EXP_HOSTNAME='exp_host'
 
+case "$HOST_NAME" in
+    *${PROD_HOSTNAME}* )
+        env="PROD"
+        echo "Running in $env environment :: $HOST_NAME"
+        ;;
+    *${DEV_HOSTNAME}* )
+        env="DEV"
+        echo "Running in $env environment :: $HOST_NAME"
+        ;;
+    *${QA_HOSTNAME}* )
+        env="QA"
+        echo "Running in $env environment :: $HOST_NAME"
+        ;;
+    *${EXP_HOSTNAME}* )
+        env="EXP"
+        echo "Running in $env environment :: $HOST_NAME"
+        ;;
+    *)
+        echo "No environment selected ::::::::::::::::::: Process aborted :::::::::::::::::"
+        exit 1
+        ;;
+esac
+
+if [ "${HOST_NAME/$PROD_HOSTNAME}" = "$HOST_NAME" ]; then 
+	echo NO
+else 
+	echo YES
+fi
+```
 
 
 ## IF
 ### [Compare Ops](http://tldp.org/LDP/abs/html/comparison-ops.html)
+#### [Check string containing substring](https://askubuntu.com/questions/299710/how-to-determine-if-a-string-is-a-substring-of-another-in-bash)
+```
+my_string=abc
+substring=ab
+if [ "${my_string/$substring}" = "$my_string" ] ; then
+  echo "${substring} is not in ${my_string}"
+else
+  echo "${substring} was found in ${my_string}"
+fi
+
+This works because ${VAR/subs} is equal to $VAR but with the first occurrence of the string subs removed, in particular if $VAR does not contains the word subs it won't be modified.
+```
+
 ### && and ||
 #### Within IF
 * && AND
