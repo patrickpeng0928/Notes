@@ -18,12 +18,12 @@ hadoop credential create pwd.alias -provider jceks://hdfs/path/to/password.jceks
 ## Spark/Scala Call
 ### POM
 ```
-	<hadoop-common.version>2.7.0</hadoop-common.version>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-common</artifactId>
-            <version>${hadoop-common.version}</version>
-        </dependency>
+<hadoop-common.version>2.7.0</hadoop-common.version>
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-common</artifactId>
+    <version>${hadoop-common.version}</version>
+</dependency>
 ```
 
 ### Import
