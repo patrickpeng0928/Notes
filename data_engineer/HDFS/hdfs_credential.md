@@ -16,3 +16,27 @@ hadoop credential create pwd.alias -provider jceks://hdfs/path/to/password.jceks
 ```
 
 ## Spark/Scala Call
+### POM
+```
+	<hadoop-common.version>2.7.0</hadoop-common.version>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop-common.version}</version>
+        </dependency>
+```
+
+### Import
+```
+import org.apache.hadoop.security.alias.CredentialProviderFactory
+```
+
+### Scala
+```
+val conf = new org.apache.hadoop.conf.Configuration()
+val alias = "pwd.alias"
+val jceksPath = "jceks://hdfs/path/to/password.jceks"
+conf.set(CredentialProviderFactory.CREDENTIAL_PROVIDER_PATH, jceksPath)
+
+val password_value = conf.getPassword(alias).toString
+```
