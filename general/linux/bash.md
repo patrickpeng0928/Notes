@@ -391,6 +391,11 @@ done
 #    3: four
 #    5: five
 ```
+#### Convert array to string
+```bash
+ids=(1 2 3 4);id="${ids[@]}";echo ${id// /|}
+1|2|3|4
+```
 
 #### @ vs *
 Note that the "@" sign can be used instead of the "*" in constructs such as ${arr[*]}, the result is the same except when expanding to the items of the array within a quoted string. In this case the behavior is the same as when expanding "$*" and "$@" within quoted strings: "${arr[*]}" returns all the items as a single word, whereas "${arr[@]}" returns each item as a separate word.
