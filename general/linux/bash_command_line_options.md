@@ -94,16 +94,16 @@ http://mywiki.wooledge.org/BashFAQ/035#getopts
 ### Explanation
 #### Advantages
 
-    * It's more portable, and will work in other shells like dash.
-    * It can handle multiple single options like -vf filename in the typical Unix way, automatically.
+* It's more portable, and will work in other shells like dash.
+* It can handle multiple single options like -vf filename in the typical Unix way, automatically.
 
 #### Disadvantage
 The disadvantage of getopts is that it can only handle short options (`-h`, not `--help`) without additional code.
 
 getopt(1) limitations (older, relatively-recent getopt versions):
 
-    * can't handle arguments that are empty strings
-    * can't handle arguments with embedded whitespace
+* can't handle arguments that are empty strings
+* can't handle arguments with embedded whitespace
     
 More recent getopt versions don't have these limitations.
 
