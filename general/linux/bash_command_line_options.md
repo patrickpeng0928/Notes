@@ -85,8 +85,10 @@ fi
 
 ## Using bash with getopt[s]
 ### Tutorial
-from: http://mywiki.wooledge.org/BashFAQ/035#getopts
+http://mywiki.wooledge.org/BashFAQ/035#getopts
+
 [getopts tutorial](http://wiki.bash-hackers.org/howto/getopts_tutorial)
+
 `help getopts`
 
 ### Explanation
