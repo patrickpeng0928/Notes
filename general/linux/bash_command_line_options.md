@@ -112,7 +112,6 @@ Additionally, the POSIX shell (and others) offer getopts which doesn't have thes
 ### Example code
 ```
 #!/bin/sh
-
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
@@ -140,4 +139,18 @@ shift $((OPTIND-1))
 echo "verbose=$verbose, output_file='$output_file', Leftovers: $@"
 
 # End of file
+```
+
+```
+#!/bin/sh
+for arg in "$@"
+do
+   key=$(echo $arg | cut -f1 -d=)`
+   value=$(echo $arg | cut -f2 -d=)`
+   case "$key" in
+        name|-name)      read_name=$value;;
+        id|-id)          read_id=$value;;
+        *)               echo "I dont know what to do with this"
+   ease
+done
 ```
