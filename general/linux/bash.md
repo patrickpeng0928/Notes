@@ -2,6 +2,17 @@
 
 http://tldp.org/LDP/abs/html/index.html
 
+## Comments
+### Multiple-line comments in Bash
+```
+#!/bin/bash
+: <<'END'
+some comments
+some comments
+some comments
+END
+```
+
 ## cut
 
 `Divide a file into several parts (columns)
