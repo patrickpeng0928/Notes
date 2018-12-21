@@ -42,6 +42,22 @@ calendar.add(Calendar.DATE, delta_days)
 val end_date: String = dateFormat.format(calendar.getTime)
 ```
 
+### Iterate through dates
+```scala
+import org.joda.time.LocalDate
+
+val startDate = "2018-12-01"
+val endDate = "2018-12-08"
+
+def dayIterator(start: LocalDate, end: LocalDate) = Iterator.iterate(start)(_ plusDays 1) takeWhile (_ isBefore end)
+
+dayIterator(new LocalDate(startDate), new LocalDate(endDate)).foreach((sd: LocalDate) => {
+  val start = sd.toString("yyyy-MM-dd")
+  val end = sd.plusDays(1).toString("yyyy-MM-dd")
+  ...
+})
+```
+
 ## HDFS File Operations
 ### Set up HDFS configurations
 #### Enable hdfs append
