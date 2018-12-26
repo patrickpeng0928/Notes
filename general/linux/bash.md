@@ -3,6 +3,71 @@
 http://tldp.org/LDP/abs/html/index.html
 
 ## Comments
+### exec
+```
+exec [-cl] [-a name] [command [arguments]]
+      If command is specified, it replaces the shell.  No new  process
+      is  created.  The arguments become the arguments to command.  If
+      the -l option is supplied,  the  shell  places  a  dash  at  the
+      beginning  of  the  zeroth  argument passed to command.  This is
+      what login(1) does.  The -c option causes command to be executed
+      with  an empty environment.  If -a is supplied, the shell passes
+      name as the zeroth argument to the executed command.  If command
+      cannot  be  executed  for  some  reason, a non-interactive shell
+      exits, unless the execfail shell option  is  enabled.   In  that
+      case,  it returns failure.  An interactive shell returns failure
+      if the file cannot be executed.  If command  is  not  specified,
+      any  redirections  take  effect  in  the  current shell, and the
+      return status is 0.  If there is a redirection error, the return
+      status is 1.
+```
+The last two lines are what is important: If you run `exec` by itself, without a command, it will simply make the redirections apply to the current shell. You probably know that when you run `command > file`, the output of command is written to file instead of to your terminal (this is called a redirection). If you run `exec > file` instead, then the redirection applies to the entire shell: Any output produced by the shell is written to file instead of to your terminal. 
+
+To understand `exec` you need to first understand `fork`. I am trying to keep it short.
+
+* When you come to a `fork` in the road you generally have two options. Linux programs reach this fork in the road when they hit a fork() system call.
+
+* Normal programs are system commands that exist in a compiled form on your system. When such a program is executed, a new process is created. This child process has the same environment as its parent, only the process ID number is different. This procedure is called forking.
+
+* Forking provides a way for an existing process to start a new one. However, there may be situations where a child process is not the part of the same program as parent process. In this case `exec` is used. `exec` will replace the contents of the currently running process with the information from a program binary.
+
+* After the forking process, the address space of the child process is overwritten with the new process data. This is done through an `exec` call to the system.
+
+`exec` is a command with two very distinct behaviors, depending on whether at least one argument is used with it, or no argument is used at all.
+
+* If at least one argument is passed, the first one is taken as a command name and `exec` try to execute it as a command passing the remaining arguments, if any, to that command and managing the redirections, if any.
+
+* If the command passed as first argument doesn't exist, the current shell, not only the exec command, exits in error.
+
+* If the command exists and is executable, it replaces the current shell. That means that if `exec` appears in a script, the instructions following the `exec` call **will never be executed** (unless `exec` is itself in a subshell). `exec` never returns.
+
+* If no argument is passed, `exec` is only used to redefine the current shell file descriptors. The shell continue after the `exec`, unlike with the previous case, but the standard input, output, error or whatever file descriptor has been redirected take effect.
+
+* If some of the redirections uses /dev/null, any input from it will return EOF and any output to it will be discarded.
+
+* You can close file descriptors by using `-` as source or destination, e.g. `exec <&-`. Subsequent read or writes will then fail.
+
+```
+$ help exec
+exec: exec [-cl] [-a name] [command [arguments ...]] [redirection ...]
+    Replace the shell with the given command.
+
+    Execute COMMAND, replacing this shell with the specified program.
+    ARGUMENTS become the arguments to COMMAND.  If COMMAND is not specified,
+    any redirections take effect in the current shell.
+
+    Options:
+      -a name   pass NAME as the zeroth argument to COMMAND
+      -c        execute COMMAND with an empty environment
+      -l        place a dash in the zeroth argument to COMMAND
+
+    If the command cannot be executed, a non-interactive shell exits, unless
+    the shell option `execfail' is set.
+
+    Exit Status:
+    Returns success unless COMMAND is not found or a redirection error occurs.
+```
+
 ### Multiple-line comments in Bash
 ```
 #!/bin/bash
