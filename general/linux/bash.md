@@ -5,23 +5,23 @@ http://tldp.org/LDP/abs/html/index.html
 ## Commands
 ### realpath
 
-There are several realpath commands around.
+There are several `realpath` commands around.
 
-The realpath utility is a wrapper around the realpath library functions and has been reinvented many times.
+The `realpath` utility is a wrapper around the realpath library functions and has been reinvented many times.
 
-Debian maintains a realpath package (separated from dwww since woody) which hasn't changed except regarding packaging and documentation since 2001. This utility is deprecated because there are now more standard alternatives (GNU readlink and soon GNU realpath), but at the time, GNU utilities didn't even have readlink at all. This implementation of realpath supports a few options to prevent symbolic link resolution or produce null-terminated output. BusyBox also includes its own realpath command (which takes no option).
+Debian maintains a `realpath` package (separated from dwww since woody) which hasn't changed except regarding packaging and documentation since 2001. This utility is deprecated because there are now more standard alternatives (GNU `readlink` and soon GNU `realpath`), but at the time, GNU utilities didn't even have `readlink` at all. This implementation of `realpath` supports a few options to prevent symbolic link resolution or produce null-terminated output. `BusyBox` also includes its own `realpath` command (which takes no option).
 
-GNU coreutils introduced a realpath command in version 8.15 in January 2012. This is a compatible replacement for BusyBox's and Debian's realpath, and also has many options in common with GNU readlink.
+GNU coreutils introduced a `realpath` command in version 8.15 in January 2012. This is a compatible replacement for BusyBox's and Debian's realpath, and also has many options in common with GNU readlink.
 
-realpath has the same effect as readlink -f with GNU readlink. What distinguishes the two commands (or rather the various realpath commands from readlink -f) is the extra options that they support.
+`realpath` has the same effect as `readlink -f` with GNU `readlink`. What distinguishes the two commands (or rather the various realpath commands from readlink -f) is the extra options that they support.
 
-GNU realpath is not deprecated; it has the opposite problem: it's too new to be available everywhere. At this time, Debian still omits GNU realpath from its coreutils package and sticks with its own realpath. I don't know why, since GNU realpath should be a drop-in replacement. As of 14.04, Ubuntu doesn't gainsay Debian on this.
+GNU `realpath` is not deprecated; it has the opposite problem: it's too new to be available everywhere. At this time, Debian still omits GNU `realpath` from its coreutils package and sticks with its **own** `realpath`. I don't know why, since GNU `realpath` should be a drop-in replacement. As of 14.04, Ubuntu doesn't gainsay Debian on this.
 
-On Linux systems, at the moment, your best bet to canonicalize a path that may contain symbolic links is readlink -f.
+On Linux systems, at the moment, your best bet to *canonicalize* a path that may contain symbolic links is `readlink -f`.
 
-BSD systems have a readlink command, with different capabilities from GNU readlink. In particular, BSD readlink does not have an option to canonicalize paths, it only traverses the symlink passed to it.
+BSD systems have a `readlink` command, with different capabilities from GNU `readlink`. In particular, BSD `readlink` does not have an option to *canonicalize* paths, it only **traverses the symlink** passed to it.
 
-readlink, incidentally, had the same problem — it was also invented many times (not adding this utility when symbolic links were added to Unix was a regrettable omission). It has now stabilized in several implementations with many incompatible flags (in particular BSD vs. GNU).
+`readlink`, incidentally, had the same problem — it was also invented many times (not adding this utility when symbolic links were added to Unix was a regrettable omission). It has now stabilized in several implementations with many incompatible flags (in particular BSD vs. GNU).
 
 #### readlink
 `readlink -f` will return 0 for a non-existent file in an existing directory whereas realpath returns 1. However, `readlink -e` will behave like `realpath` and return 1 for a non-existent file (see Editors note at end).
