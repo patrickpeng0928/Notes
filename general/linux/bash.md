@@ -3,7 +3,32 @@
 http://tldp.org/LDP/abs/html/index.html
 
 ## Commands
-### realpath
+### Find path of a script
+#### dirname
+```
+SCRIPT_PATH=$(dirname "$0")
+SCRIPTS_FOLDER_PATH=$(echo $SCRIPT_PATH | sed 's/\(scripts\).*/\1/g')
+```
+#### basename
+```
+basename /path/to/file.ext
+# file.ext
+
+basename /path/to/file.ext .ext
+# file
+```
+
+#### filename and dirname althernatives
+```
+for pathname in $(find $search -type f -name "*" -print)
+do
+    basename=${pathname##*/}   # replaces basename "$pathname"
+    dirname=${pathname%/*}     # replaces dirname "$pathname"
+# .... 
+done
+```
+
+#### realpath
 
 There are several `realpath` commands around.
 
@@ -137,7 +162,7 @@ some comments
 END
 ```
 
-## cut
+### cut
 
 `Divide a file into several parts (columns)
 Writes to standard output selected parts of each line of each input file, or standard input if no files are given or for a file name of '-'.`
@@ -163,7 +188,7 @@ cut [OPTION]... [FILE]...
 cut -d"_" -f1 <<< "$variable"
 ```
 
-## [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
+### [head](https://ss64.com/bash/head.html) and [tail](https://ss64.com/bash/tail.html)
 * head
 
 `Output the first part of files, prints the first part (10 lines by default) of each file.`
@@ -231,7 +256,7 @@ tail -F /var/log/wifi.log
 head -50 file.txt | tail -10
 ```
 
-## work around with temp file
+### work around with temp file
 ```bash
 #--------------------------------------------------------------------------
 # Cleanup temporary file in case of keyboard interrupt or termination signal.
@@ -249,17 +274,7 @@ tmpfile=$(mktemp) || { echo "$0: creation of temporary file failed!"; exit 1; }
 rm --force $tmpfile
 ```
 
-## filename and dirname althernatives
-```
-for pathname in $(find $search -type f -name "*" -print)
-do
-    basename=${pathname##*/}   # replaces basename "$pathname"
-    dirname=${pathname%/*}     # replaces dirname "$pathname"
-# .... 
-done
-```
-
-## date
+### date
 
 `date [option] ... [+Format]`
 
@@ -403,7 +418,7 @@ $(date +%Y-%m-%d:%H:%M:%S)
 echo  "Oct 10" | { read dt ; date -d "$dt" ; }
 ```
 
-## Redirection
+### Redirection
 
 `echo “” 2>&1 | tee -a /path/to/log/file.log` Redirect `stderr` to file descriptor 1 (`stdout`), `&` indicates that what follows is a file descriptor, not a filename.
 
@@ -431,7 +446,7 @@ File descriptor 2 is standard error (`stderr`).
 
 https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 
-## Dynamic Programming
+### Dynamic Programming
 
 ```bash
 var1="abc"
@@ -442,8 +457,8 @@ echo ${!var2} # xyz
 ```
 
 
-## String Manipulation
-### lower case and UPPER CASE
+### String Manipulation
+#### lower case and UPPER CASE
 
 ```bash
 var="aBc"
@@ -451,7 +466,7 @@ echo ${var^^} # ABC
 echo ${var,,} # abc
 ```
 
-### Pattern matching
+#### Pattern matching
 ```bash
 metacharacter=’[~&|]’
 if [[ "$variable_name" =~ $metacharacter ]]
@@ -591,7 +606,7 @@ done
 #    item
 ```
 
-## Case
+### Case
 
 ```bash
 case "$1" in:
@@ -606,7 +621,7 @@ case "$1" in:
 		;;
 esac
 ```
-### Using case to set up different environments
+#### Using case to set up different environments
 ```
 HOST_NAME=$(hostname)
 PROD_HOSTNAME='prod_host'
@@ -645,9 +660,9 @@ fi
 ```
 
 
-## IF
-### [Compare Ops](http://tldp.org/LDP/abs/html/comparison-ops.html)
-#### [Check string containing substring](https://askubuntu.com/questions/299710/how-to-determine-if-a-string-is-a-substring-of-another-in-bash)
+### IF
+#### [Compare Ops](http://tldp.org/LDP/abs/html/comparison-ops.html)
+##### [Check string containing substring](https://askubuntu.com/questions/299710/how-to-determine-if-a-string-is-a-substring-of-another-in-bash)
 ```
 my_string=abc
 substring=ab
@@ -660,8 +675,8 @@ fi
 This works because ${VAR/subs} is equal to $VAR but with the first occurrence of the string subs removed, in particular if $VAR does not contains the word subs it won't be modified.
 ```
 
-### && and ||
-#### Within IF
+#### && and ||
+##### Within IF
 * && AND
 
 ```bash
@@ -736,8 +751,8 @@ if [ $date1 -ge $date2 ]; then
 fi
 ```
 
-## Loop
-### while
+### Loop
+#### while
 #### loop through dates
 ```
 # slightly malformed input data
