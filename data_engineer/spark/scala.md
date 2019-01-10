@@ -46,11 +46,11 @@ val end_date: String = dateFormat.format(calendar.getTime)
 ```scala
 import org.joda.time.LocalDate
 
-val startDate = "2018-12-01"
-val endDate = "2018-12-08"
-
+# [start, end)
 def dayIterator(start: LocalDate, end: LocalDate) = Iterator.iterate(start)(_ plusDays 1) takeWhile (_ isBefore end)
 
+val startDate = "2018-12-01"
+val endDate = "2018-12-08"
 dayIterator(new LocalDate(startDate), new LocalDate(endDate)).foreach((sd: LocalDate) => {
   val start = sd.toString("yyyy-MM-dd")
   val end = sd.plusDays(1).toString("yyyy-MM-dd")
