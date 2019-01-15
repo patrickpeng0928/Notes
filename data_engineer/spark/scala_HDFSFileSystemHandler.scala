@@ -1,4 +1,4 @@
-package com.synchrony.edl.utils
+package com.package
 
 import java.text.SimpleDateFormat
 import java.util.Date
