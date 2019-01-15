@@ -11,6 +11,11 @@ val df = spark.read.json(jsonRdd)
 ```
 
 ## Filter DF
+### Select columns
+```
+df.select([columns])
+```
+
 ### isNull or isNotNull
 ```
 df.filter(df.column.name.isNull())
