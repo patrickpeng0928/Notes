@@ -1,4 +1,4 @@
-# DataFrame Transformation
+# DataFrame Transformations in Scala
 ## add an index
 ```scala
 /**
