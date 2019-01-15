@@ -1,4 +1,4 @@
-# Handling Hive table in Spark DataFrame
+# Handling Hive table in Spark Scala
 ## Hive Commands
 ```scala
 val showPartitions = "show partitions"
