@@ -1,4 +1,4 @@
-# DataFrame Filters
+# DataFrame Filters in Scala
 ## Filter data by dates
 ```scala
 /**
