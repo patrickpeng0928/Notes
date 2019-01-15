@@ -1,4 +1,4 @@
-# Spark RDD Programming
+# Spark RDD Programming in Scala
 ```
 https://spark.apache.org/docs/latest/rdd-programming-guide.html
 ```
