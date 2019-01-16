@@ -299,6 +299,8 @@ rm --force $tmpfile
       `D` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; date in mm/dd/yy
 
       `x` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; date in local standard format
+      
+      `F` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; date in yyyy-mm-dd
 
    2. Year
 
@@ -354,7 +356,7 @@ rm --force $tmpfile
 
       `R` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 24-hour format w/o seconds
 
-      `T` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 24-hour format w. seconds
+      `T` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Time in 24-hour format w. seconds, HH:MM:SS
 
       `X` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `T`
 
