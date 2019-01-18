@@ -15,3 +15,12 @@
 | a | 2-character AM/PM | 
 | z | 3-character timezone | 
 | Z | +/- 4-digit timezone |
+
+## Get partitions from partitioned hive table
+```python
+sc = SparkContext()
+hive = HiveContext(sc)
+showPartitions = "show partitions"
+partitions = hive.sql("{0} {1}".format(showPartitions, tableName))
+lastPartition = partitions.agg(max("result")).map(lambda row: row['max(result)'].split("=")[-1]).collect()[0]
+```
