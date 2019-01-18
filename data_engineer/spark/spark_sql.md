@@ -18,6 +18,7 @@
 
 ## Get partitions from partitioned hive table
 ```python
+%spark 1.6.3 python 2.6.6
 sc = SparkContext()
 hive = HiveContext(sc)
 showPartitions = "show partitions"
