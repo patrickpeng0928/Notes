@@ -9,7 +9,11 @@ spark-shell --conf spark.port.maxRetries=RETRY_NUMBER
 
 ## Set conf
 ```scala
-spark.conf.set(key, value)
+# set conf
+spark.conf.set("spark.some.config", value)
+
+# get conf
+spark.conf.get("spark.some.config")
 ```
 
 ## date
