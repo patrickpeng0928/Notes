@@ -6,6 +6,12 @@ spark-shell --conf spark.ui.port=PORT_NUMBER
 
 spark-shell --conf spark.port.maxRetries=RETRY_NUMBER
 ```
+
+## Set conf
+```scala
+spark.conf.set(key, value)
+```
+
 ## date
 ### import packages
 ```scala
@@ -56,55 +62,4 @@ dayIterator(new LocalDate(startDate), new LocalDate(endDate)).foreach((sd: Local
   val end = sd.plusDays(1).toString("yyyy-MM-dd")
   ...
 })
-```
-
-## HDFS File Operations
-### Set up HDFS configurations
-#### Enable hdfs append
-```scala
-import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.fs.FileSystem
-import org.apache.spark.sql.SparkSession
-
-def configureHDFS(): FileSystem = {
-  val fs: FileSystem = try {
-    val spark: SparkSession = SparkSession.builder().getOrCreate()
-    val conf: Configuration = spark.sparkContext.hadoopConfiguration
-    conf.setBoolean("dfs.support.append", true)
-    FileSystem.get(conf)
-  } catch  {
-    case e: Exception =>
-      println(s"Error occurred while configuring FileSystem: ${e.printStackTrace()}")
-      sys.exit(1)
-  }
-  
-  return fs
-}
-```
-
-### Create a new file or append an existing file
-```scala
-import org.apache.hadoop.fs.{FSDataOutputStream, FileSystem, Path}
-import org.apache.spark.sql.SparkSession
-
-def appendHDFSFile(
-                    content: String
-                    , filePath: String
-                  ): Unit = {
-  val outputPath: Path = new Path(filePath)
-  val fs: FileSystem = configureHDFS()
-  val outputStream: FSDataOutputStream = if (!fs.exists(outputPath)) {
-    fs.create(outputPath)
-  } else {
-    val isAppendable = fs.getConf.get("dfs.support.append").toBoolean
-    if (isAppendable) {
-      fs.append(outputPath)
-    } else {
-      println("Please set the dfs.support.append property to true")
-      sys.exit(1)
-    }
-  }
-  outputStream.writeUTF(content)
-  outputStream.close()
-}
 ```
