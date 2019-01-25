@@ -6,14 +6,31 @@ spark-shell --conf spark.ui.port=PORT_NUMBER
 
 spark-shell --conf spark.port.maxRetries=RETRY_NUMBER
 ```
-
-## Set conf
+## [Spark Conf](https://databricks.com/blog/2016/08/15/how-to-use-sparksession-in-apache-spark-2-0.html)
+### Create conf
 ```scala
-# set conf
-spark.conf.set("spark.some.config", value)
+// create a empty SparkConf
+// dynamically loading Spark Properties
+// from spark-submit options
+val sc = new SparkContext(new SparkConf)
 
-# get conf
+//set up the spark configuration and create contexts
+val sparkConf = new SparkConf().setAppName("SparkSessionZipsExample").setMaster("local")
+val sc = new SparkContext(sparkConf).set("spark.some.config.option", "some-value")
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+```
+### Setter and getter
+```scala
+// set conf
+spark.conf.set("spark.some.config", value)
+// get conf
 spark.conf.get("spark.some.config")
+//get all settings
+val configMap:Map[String, String] = spark.conf.getAll()
+```
+### Create SparkSession with Spark Conf
+```scala
+val spark = SparkSession.builder.config(sc.getConf).enableHiveSupport.getOrCreate()
 ```
 
 ## date
