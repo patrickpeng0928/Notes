@@ -3,6 +3,28 @@
 http://tldp.org/LDP/abs/html/index.html
 
 ## Commands
+### set - Shell option
+* to define and determine the values of the system environment.
+```
+# enable shell options 
+set -
+# diable shell options
+set +
+```
+
+| option | meaning |
+| --- | --- |
+| -a | Mark variables that are modified or created for "export"; environment variables set in this way will be passed on to the environments of any subsequent commands. |
+| -e | Exit immediately if a command exits with a non-zero exit status. |
+| -f | Disable file name generation (globbing). |
+| -h | Locate and remember function commands as functions are defined (function commands are normally located when the function is executed). |
+| -k | All keyword arguments are placed in the environment for a command, not just those that precede the command name. |
+| -n | Read commands but do not execute them. |
+| -t | Exit after reading and executing one command. |
+| -u | Treat unset variables as an error when substituting. |
+| -v | Print shell input lines as they are read. |
+| -x | Print commands and their arguments as they are executed. |
+
 ### Find path of a script
 #### dirname
 ```
