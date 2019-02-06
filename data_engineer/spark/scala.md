@@ -32,6 +32,10 @@ val configMap:Map[String, String] = spark.conf.getAll()
 ```scala
 val spark = SparkSession.builder.config(sc.getConf).enableHiveSupport.getOrCreate()
 ```
+### Set log level
+```
+sc.setLogLevel("ERROR")
+```
 
 ## date
 ### import packages
