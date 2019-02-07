@@ -442,7 +442,15 @@ $(date +%Y-%m-%d:%H:%M:%S)
 echo  "Oct 10" | { read dt ; date -d "$dt" ; }
 ```
 
-6. display seconds to human readable
+### Second
+#### Count running time
+```bash
+SECONDS=0
+...
+duraction=$SECONDS
+```
+
+#### Display seconds to human readable
 ```bash
 function display_time {
   local T=$1
@@ -460,6 +468,7 @@ function display_time {
 > display_time 111167
 1 days 6 hours 52 minutes and 47 seconds
 ```
+
 ### Redirection
 
 `echo “” 2>&1 | tee -a /path/to/log/file.log` Redirect `stderr` to file descriptor 1 (`stdout`), `&` indicates that what follows is a file descriptor, not a filename.
