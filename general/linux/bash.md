@@ -836,5 +836,34 @@ done
 ```
 
 
+### Arithmetic
+#### let
+```bash
+let <arithmetic expression>
+```
+* Operators
++, -, \*, /, varr++, var--, %
 
+#### expr
+```bash
+expr item1 operator item2
+```
+* Operators
++, -, \*, /, %
+
+#### Double parentheses
+```bash
+$(( expression ))
+```
+* Operators
++, -, \*, /, %, var++, var--, var+=
+
+#### [bc](https://ss64.com/bash/bc.html)
+```
+bc <<< "expression"
+```
+#### length of a variable
+```bash
+${#var}
+```
 
