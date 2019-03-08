@@ -19,3 +19,15 @@ hdfs dfs -touchz /path/to/files
 ```
 hdfs fsck hdfs://path
 ```
+
+## Check corrupted file
+### resources:
+1. http://fibrevillage.com/storage/658-how-to-use-hdfs-fsck-command-to-identify-corrupted-files
+
+```
+hdfs fsck hdfs://path > ${file}
+cat ${file} | egrep -v '^\.+$' | grep -i corrupt
+cat ${file} | egrep -v '^\.+$' | grep -v replica | grep -v Replica
+# best
+cat ${file} | egrep -v '^\.+$' | grep -i "corrupt blockpool" | sed 's/\/part-.*$//g' | sort | uniq > ${log_file}
+```
