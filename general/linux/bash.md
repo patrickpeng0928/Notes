@@ -867,3 +867,31 @@ bc <<< "expression"
 ${#var}
 ```
 
+### File handler
+#### Create a new file handler
+```bash
+exec 5< ${file}
+```
+
+#### Close an existing file handler
+```bash
+exec 5<&-
+```
+
+### read lines from a file
+```bash
+# Create new file handle 5
+exec 5< input-file.txt
+
+# Now you can use "<&5" to read from this file
+while read line1 <&5 ; do
+        read line2 <&5
+        read line3 <&5
+        read line4 <&5
+
+        echo "Four lines: $line1 $line2 $line3 $line4"
+done
+
+# Close file handle 5
+exec 5<&-
+```
