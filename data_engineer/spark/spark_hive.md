@@ -20,7 +20,7 @@ set spark.hadoop.hive.exec.dynamic.partition.mode=nonstrick
 ```
 set mapred.input.dir.recursive=true
 set mapreduce.input.fileinputformat.input.dir.recursive=true
-``
+```
 2. support in spark-shell
 ```
 spark.conf.set("mapreduce.input.fileinputformat.input.dir.recursive","true")
